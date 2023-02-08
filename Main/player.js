@@ -270,7 +270,7 @@ class Player extends Phys.Actor {
         //If z is pressed, jjp = 8, otherwise decr jjp if jjp > 0
         if(zPressed) {this.jumpJustPressed = JUMP_JUST_PRESSED_TIME;}
         else if(this.jumpJustPressed > 0) {this.jumpJustPressed = Phys.timeDecay(this.jumpJustPressed, 0);}
-        const onWall = this.getLevel().isOnWallGrindable(this, 1);
+        const onWall = false;
         if(!onWall.ret || (!rightKey && !leftKey)) {this.wallGrinding = false;}
         else if(rightKey && onWall.ret === 1) {this.wallGrinding = true;}
         else if(leftKey && onWall.ret === -1) {this.wallGrinding = true;}
