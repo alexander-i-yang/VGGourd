@@ -41,6 +41,10 @@ const hasWallGrindable = (arr) => {
 
 class Player extends Phys.Actor {
     constructor(x, y, w, h, level) {
+        const img = Graphics.IMAGES.PLAYER;
+        w = img.width;
+        h = img.height;
+
         super(x, y, w, h, [
             LAYER_NAMES.WALLS,
             LAYER_NAMES.BREAKABLE,
@@ -71,22 +75,21 @@ class Player extends Phys.Actor {
         this.wallJumpObj = {ret:0, obj:null};
         this.thrower = new Thrower(THROW_VELOCITY, PICKUP_TARGET_OFFSET);
 
-
          // img = null,
         // direction: direction = BMath.VectorUp,
         // w=16, h=16,
         // offset=BMath.VectorZero
         // this.sprite = new Graphics.Sprite(Graphics.IMAGES.BOOSTER_IMG, null, 8, 12, VectorZero);
         this.sprite = new Graphics.Sprite({
-            img: Graphics.IMAGES.PLAYER,
+            img: img,
             direction: null,
             offset: VectorZero,
-            w:8, h:12,
+            w:w, h:h,
         });
 
         this.spriteOptions = {
             sx: 0, sy: 0,
-            w: 8, h: 12,
+            w: w, h: h,
             direction: 0
         };
     }
@@ -210,6 +213,7 @@ class Player extends Phys.Actor {
     }
 
     crouch() {
+        return false;
         const h = this.getHeight();
         // alert();
         if(h > CROUCH_HEIGHT) {
