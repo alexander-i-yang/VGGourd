@@ -1,5 +1,7 @@
 # How to Install
 1. [Download python](https://www.python.org/downloads/)
+   1. Make sure you add python to your path.
+![It's in the install screen](/sc2.png)
 2. Download the project as zip
 ![Go to code -> Download as zip](/img.png)
 3. Extract the zip
